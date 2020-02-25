@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = TestJpaConfiguration.class)
@@ -18,8 +20,8 @@ public class MyEntityTest {
 
 	@Test
 	public void testTags() {
-		MyEntity article = myEntityDao.getOne(1L);
-		assertThat(article.getTags()).isEmpty();
+		final List<MyEntity> allEntities = myEntityDao.findAll();
+		assertThat(allEntities).isEmpty();
 	}
 
 }
