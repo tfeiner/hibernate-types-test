@@ -15,7 +15,7 @@ import java.util.List;
 )
 public abstract class AbstractEntity {
 
-	@Column(name = "tags", columnDefinition = "text[]")
+	@Column(name = "tags", columnDefinition = "array")
 	@Type(type = "list-array")
 	private List<String> tags;
 
